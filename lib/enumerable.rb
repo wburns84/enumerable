@@ -1,5 +1,7 @@
 require "enumerable/version"
 
 module Enumerable
-  # Your code goes here...
+  def any?
+    true
+  end
 end
