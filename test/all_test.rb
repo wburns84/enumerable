@@ -1,7 +1,7 @@
 require 'test_helper'
 
-class AllTest < MiniTest::Unit::TestCase
-  def test_that_the_empty_array_returns_true
-    assert TestHelper.empty_array.any?
+describe 'all?' do
+  describe 'with empty array' do
+    it{ TestHelper.empty_array.any?.must_equal true }
   end
 end
