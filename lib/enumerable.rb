@@ -14,7 +14,9 @@ module Enumerable
   def count *args
     count = 0
     each do |element|
-      if args.count > 0
+      if block_given?
+        count += 1 if yield element
+      elsif args.count > 0
         count += 1 if element == args.first
       else
         count += 1
