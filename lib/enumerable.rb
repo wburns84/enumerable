@@ -1,8 +1,8 @@
 require "enumerable/version"
 
 module Enumerable
-  def any?
-    each { |element| return yield element }
+  def all?
+    each { |element| return false unless yield element }
     true
   end
 end
