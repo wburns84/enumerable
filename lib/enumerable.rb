@@ -24,4 +24,20 @@ module Enumerable
     end
     count
   end
+
+  def first *args
+    if args.count > 0
+      remaining = args.first
+      to_return = []
+      each do |element|
+        break if remaining == 0
+        to_return << element
+        remaining -= 1
+      end
+      return to_return
+    else
+      each { |element| return element }
+    end
+    nil
+  end
 end
