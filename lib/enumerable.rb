@@ -11,9 +11,15 @@ module Enumerable
     false
   end
 
-  def count
+  def count *args
     count = 0
-    each { |_| count += 1 }
+    each do |element|
+      if args.count > 0
+        count += 1 if element == args.first
+      else
+        count += 1
+      end
+    end
     count
   end
 end
