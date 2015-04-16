@@ -11,6 +11,25 @@ module Enumerable
     false
   end
 
+  def chunk
+    to_return = []
+    to_add    = []
+    truthiness = nil
+    each do |element|
+      truthiness = yield(element) if truthiness.nil?
+      unless truthiness == yield(element)
+        unless to_add.empty?
+          to_return << [truthiness, to_add]
+          to_add = []
+        end
+        truthiness ^= 1
+      end
+      to_add << element
+    end
+    to_return << [truthiness, to_add] unless to_add.empty?
+    to_return.to_enum
+  end
+
   def count *args
     count = 0
     each do |element|
