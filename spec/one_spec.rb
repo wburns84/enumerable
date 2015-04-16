@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'any?' do
+describe 'one?' do
   describe 'empty array' do
     it{ SpecHelper.empty_array.one?.must_equal false }
   end

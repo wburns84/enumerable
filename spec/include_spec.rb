@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'first' do
+describe 'include?' do
   it{ SpecHelper.empty_array.include?(nil).must_equal false }
   it{ SpecHelper.for([1]).include?(nil).must_equal false }
   it{ SpecHelper.for([1]).include?(1).must_equal   true  }
