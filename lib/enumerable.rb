@@ -45,4 +45,16 @@ module Enumerable
     each { |element| return true if element == to_find }
     return false
   end
+
+  def one?
+    found = false
+    each do |element|
+      if found
+        return false if yield element
+      else
+        found = yield element
+      end
+    end
+    found
+  end
 end
