@@ -40,4 +40,9 @@ module Enumerable
     end
     nil
   end
+
+  def include? to_find
+    each { |element| return true if element == to_find }
+    return false
+  end
 end
